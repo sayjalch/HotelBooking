@@ -1,0 +1,377 @@
+<!-- contact1 -->
+<section class="w3l-contact-1">
+    <div class="sub-banner">
+        <div class="container">
+            <div class="breadcrumb-area">
+                <!-- <h1>Booking Form</h1> -->
+            </div>
+            <nav class="breadcrumbs">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active">Booking Form</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <div class="contacts-9 py-lg-5 py-sm-4">
+        <div class="container" style="box-shadow: 0 0 5px rgb(0 0 0 / 25%) !important;">
+            <!--  <form [formGroup]="bookingForm" (ngSubmit)="onSubmitBookingDetails(bookingForm.value)">
+                <mat-accordion>
+                    <mat-expansion-panel [expanded]="panelOpenState">
+                        <mat-expansion-panel-header
+                            style="background-color:#ff4081 !important; margin-bottom: 15px !important;">
+                            <mat-panel-title>
+                                <h2 class="booking-heading-2 black-color" style="color:#fff !important; margin: 0 !important;">Add Personal
+                                    Info
+                                    and Booking Details </h2>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                      
+                    </mat-expansion-panel>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header
+                            style="background-color:#ff4081 !important; margin-bottom: 15px !important;">
+                            <mat-panel-title>
+                                <h2 class="booking-heading-2 black-color" style="color:#fff !important; margin: 0 !important;">Review and
+                                    Confirm
+                                    Your Booking Details</h2>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                       
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </form>
+ -->
+            <mat-stepper linear #stepper>
+                <mat-step [stepControl]="bookingForm" label="Add Personal Info and Booking Details"
+                    style="background-color:#ff4081 !important; margin-bottom: 15px !important; color:#fff !important;">
+                    <form [formGroup]="bookingForm">
+                        <div class="row">
+                            <div class="col-8">
+                                <!-- <h4 class="booking-heading-2 black-color">Personal Info</h4> -->
+                                <div class="row cont-details">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <mat-form-field class="form-field full-width" appearance="outline">
+                                            <mat-label>Full Name</mat-label>
+                                            <input matInput placeholder="Full Name" class="form-control"
+                                                [(ngModel)]="book.fullName" formControlName="fullname" required>
+                                            <mat-icon matSuffix class="my-icon">person</mat-icon>
+                                            <mat-error *ngFor="let validation of validation_messages.fullname">
+                                                <mat-error class="error-message"
+                                                    *ngIf="bookingForm.controls['fullname'].hasError(validation.type) && (bookingForm.controls['fullname'].dirty || bookingForm.controls['fullname'].touched)">{{validation.message}}</mat-error>
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <mat-form-field class="form-field full-width" appearance="outline">
+                                            <mat-label>Mobile No</mat-label>
+                                            <input matInput placeholder="Mobile No" class="form-control"
+                                                [(ngModel)]="book.mobileNo" formControlName="mobileno" type="number"
+                                                required>
+                                            <mat-icon matSuffix class="my-icon">contact_phone</mat-icon>
+                                            <mat-error *ngFor="let validation of validation_messages.mobileno">
+                                                <mat-error class="error-message"
+                                                    *ngIf="bookingForm.controls['mobileno'].hasError(validation.type) && (bookingForm.controls['mobileno'].dirty || bookingForm.controls['mobileno'].touched)">{{validation.message}}</mat-error>
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <mat-form-field class="form-field full-width" appearance="outline">
+                                            <mat-label>Email Id</mat-label>
+                                            <input matInput placeholder="Email Id" class="form-control"
+                                                [(ngModel)]="book.emailId" formControlName="emailid" required>
+                                            <mat-icon matSuffix class="my-icon">email</mat-icon>
+                                            <mat-error *ngFor="let validation of validation_messages.emailid">
+                                                <mat-error class="error-message"
+                                                    *ngIf="bookingForm.controls['emailid'].hasError(validation.type) && (bookingForm.controls['emailid'].dirty || bookingForm.controls['emailid'].touched)">{{validation.message}}</mat-error>
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin: 0px 0px 10px;">
+                                        <mat-label>Gender</mat-label>
+                                        <mat-icon matPrefix class="my-icon">wc</mat-icon>
+                                        <mat-radio-group class="tp-radio-group" formControlName="gender"
+                                            formControlName="gender">
+                                            <mat-radio-button class="tp-radio-button" *ngFor="let gender of genders"
+                                                [value]="gender">
+                                                {{gender}}
+                                            </mat-radio-button>
+                                        </mat-radio-group>
+                                        <mat-error *ngFor="let validation of validation_messages.gender">
+                                            <mat-error class="error-message"
+                                                *ngIf="bookingForm.controls['gender'].hasError(validation.type) && (bookingForm.controls['gender'].dirty || bookingForm.controls['gender'].touched)">{{validation.message}}</mat-error>
+                                        </mat-error>
+                                        <mat-error
+                                            *ngIf="bookingForm.controls['gender'].touched && bookingForm.controls['gender'].invalid">
+                                            <span *ngIf="bookingForm.controls['gender'].hasError('required')">Gender is
+                                                required.</span>
+                                        </mat-error>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <mat-form-field class="form-field full-width" appearance="outline">
+                                            <mat-label> Date of Birth
+                                            </mat-label>
+                                            <!-- <mat-icon matSuffix class="my-icon">calendar_today</mat-icon> -->
+                                            <input matInput [matDatepicker]="picker" placeholder="Date of Birth"
+                                                formControlName="dateofbirth" required>
+                                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker></mat-datepicker>
+                                            <mat-error *ngFor="let validation of validation_messages.dateofbirth">
+                                                <mat-error class="error-message"
+                                                    *ngIf="bookingForm.controls['dateofbirth'].hasError(validation.type) && (bookingForm.controls['dateofbirth'].dirty || bookingForm.controls['dateofbirth'].touched) && bookingForm.controls['dateofbirth'].invalid">{{validation.message}}</mat-error>
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <mat-form-field class="form-field full-width" appearance="outline">
+                                            <mat-label>Address Line - 1</mat-label>
+                                            <input matInput placeholder="Address Line - 1" class="form-control"
+                                                [(ngModel)]="book.address1" formControlName="address1" required>
+                                            <mat-icon matSuffix class="my-icon">note</mat-icon>
+                                            <mat-error *ngFor="let validation of validation_messages.address1">
+                                                <mat-error class="error-message"
+                                                    *ngIf="bookingForm.controls['address1'].hasError(validation.type) && (bookingForm.controls['address1'].dirty || bookingForm.controls['address1'].touched)">{{validation.message}}</mat-error>
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <mat-form-field class="form-field full-width" appearance="outline">
+                                            <mat-label>Address Line - 2</mat-label>
+                                            <input matInput placeholder="Address Line - 2" class="form-control"
+                                                [(ngModel)]="book.address2" formControlName="address2">
+                                            <mat-icon matSuffix class="my-icon">note</mat-icon>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <mat-form-field class="form-field full-width" appearance="outline">
+                                            <mat-label>City</mat-label>
+                                            <input matInput placeholder="City" class="form-control"
+                                                [(ngModel)]="book.city" formControlName="city" required>
+                                            <mat-icon matSuffix class="my-icon">room</mat-icon>
+                                            <mat-error *ngFor="let validation of validation_messages.city">
+                                                <mat-error class="error-message"
+                                                    *ngIf="bookingForm.controls['city'].hasError(validation.type) && 
+                                (bookingForm.controls['city'].dirty || bookingForm.controls['city'].touched)">{{validation.message}}</mat-error>
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <mat-form-field class="form-field full-width" appearance="outline">
+                                            <mat-label>Zip/Post Code</mat-label>
+                                            <input matInput placeholder="Zip/Post Code" class="form-control"
+                                                [(ngModel)]="book.pincode" formControlName="pincode" type="number"
+                                                required>
+                                            <mat-icon matSuffix class="my-icon">pin_drop</mat-icon>
+                                            <mat-error *ngFor="let validation of validation_messages.pincode">
+                                                <mat-error class="error-message"
+                                                    *ngIf="bookingForm.controls['pincode'].hasError(validation.type) 
+                                && (bookingForm.controls['pincode'].dirty || bookingForm.controls['pincode'].touched)">{{validation.message}}</mat-error>
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <mat-form-field class="form-field full-width" appearance="outline">
+                                            <mat-label>State/Region</mat-label>
+                                            <input matInput placeholder="State/Region" class="form-control"
+                                                [(ngModel)]="book.state" formControlName="state" required>
+                                            <mat-icon matSuffix class="my-icon">room</mat-icon>
+                                            <mat-error *ngFor="let validation of validation_messages.state">
+                                                <mat-error class="error-message"
+                                                    *ngIf="bookingForm.controls['state'].hasError(validation.type) && 
+                                (bookingForm.controls['state'].dirty || bookingForm.controls['state'].touched)">{{validation.message}}</mat-error>
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <mat-form-field class="form-field full-width" appearance="outline">
+                                            <mat-label> Country</mat-label>
+                                            <mat-select formControlName="country" placeholder="Select your Country"
+                                                required [(ngModel)]="book.country">
+                                                <mat-option *ngFor="let countryy of countries" [value]="countryy">
+                                                    {{ countryy }}
+                                                </mat-option>
+                                            </mat-select>
+                                            <mat-icon matSuffix class="my-icon">room</mat-icon>
+                                            <mat-error
+                                                *ngIf="bookingForm.controls['country'].touched && bookingForm.controls['country'].invalid">
+                                                <span
+                                                    *ngIf="bookingForm.controls['country'].hasError('required')">Country
+                                                    is required</span>
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <!-- <h4 class="booking-heading-2">Booking Details</h4> -->
+                                <div class="booling-details-box">
+                                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <img src="/assets/images/img-2.jpg" class="d-block w-100" alt="photo">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="info cont-details" style="padding: 15px 20px;">
+                                        <mat-form-field class="form-field full-width" appearance="outline">
+                                            <mat-label>Hotel Name</mat-label>
+                                            <input matInput placeholder="Hotel Name" class="form-control" [(ngModel)]="book.hotelName"
+                                                formControlName="hotelName">
+                                        </mat-form-field>
+                                        <mat-form-field class="form-field full-width" appearance="outline">
+                                            <mat-label>Room Name</mat-label>
+                                            <input matInput placeholder="Room Name" class="form-control" [(ngModel)]="book.roomName"
+                                                 formControlName="roomName">
+                                        </mat-form-field>
+                                        <mat-form-field class="form-field full-width" appearance="outline">
+                                            <mat-label>Room Type</mat-label>
+                                            <input matInput placeholder="Room Type" class="form-control" [(ngModel)]="book.roomType"
+                                                formControlName="roomType">
+                                        </mat-form-field>
+                                        <mat-form-field class="form-field full-width" appearance="outline">
+                                            <mat-label>Check In:</mat-label>
+                                            <input matInput [matDatepicker]="picker1" [min]="minDate"
+                                                [(ngModel)]="book.checkIn" placeholder="Check In" class="form-control"
+                                                required formControlName="checkIn">
+                                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker1></mat-datepicker>
+                                            <mat-error *ngFor="let validation of validation_messages.checkIn">
+                                                <mat-error class="error-message"
+                                                    *ngIf="bookingForm.controls['checkIn'].hasError(validation.type) && 
+                                                (bookingForm.controls['checkIn'].dirty || bookingForm.controls['checkIn'].touched) && bookingForm.controls['checkIn'].invalid">{{validation.message}}</mat-error>
+                                            </mat-error>
+                                        </mat-form-field>
+                                        <mat-form-field class="form-field full-width" appearance="outline">
+                                            <mat-label>Check Out:</mat-label>
+                                            <input matInput [matDatepicker]="picker2" [min]="book.checkIn"
+                                                [(ngModel)]="book.checkOut" placeholder="Check Out" class="form-control"
+                                                required formControlName="checkOut">
+                                            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker2></mat-datepicker>
+                                            <mat-error *ngFor="let validation of validation_messages.checkOut">
+                                                <mat-error class="error-message"
+                                                    *ngIf="bookingForm.controls['checkOut'].hasError(validation.type) && 
+                                            (bookingForm.controls['checkOut'].dirty || bookingForm.controls['checkOut'].touched) && bookingForm.controls['checkOut'].invalid">{{validation.message}}</mat-error>
+                                            </mat-error>
+                                        </mat-form-field>
+                                        <mat-form-field class="form-field full-width" appearance="outline">
+                                            <mat-label>Room No</mat-label>
+                                            <input matInput placeholder="Room No" class="form-control"
+                                                [(ngModel)]="book.roomNo" formControlName="roomNo">
+                                        </mat-form-field>
+                                        <mat-form-field class="form-field full-width" appearance="outline">
+                                            <mat-label>Adults</mat-label>
+                                            <mat-select formControlName="adults" placeholder="Select no of adults"
+                                                required [(ngModel)]="book.adults">
+                                                <mat-option *ngFor="let adultNo of adults" [value]="adultNo">
+                                                    {{ adultNo }}
+                                                </mat-option>
+                                            </mat-select>
+                                            <mat-error
+                                                *ngIf="bookingForm.controls['adults'].touched && bookingForm.controls['adults'].invalid">
+                                                <span *ngIf="bookingForm.controls['adults'].hasError('required')">No of
+                                                    Adults
+                                                    is required</span>
+                                            </mat-error>
+                                        </mat-form-field>
+                                        <mat-form-field class="form-field full-width" appearance="outline">
+                                            <mat-label>Child</mat-label>
+                                            <mat-select formControlName="child" placeholder="Select no of child"
+                                                required [(ngModel)]="book.child">
+                                                <mat-option *ngFor="let childNo of childs" [value]="childNo">
+                                                    {{ childNo }}
+                                                </mat-option>
+                                            </mat-select>
+                                            <mat-error
+                                                *ngIf="bookingForm.controls['child'].touched && bookingForm.controls['child'].invalid">
+                                                <span *ngIf="bookingForm.controls['child'].hasError('required')">No of
+                                                    Child
+                                                    is required</span>
+                                            </mat-error>
+                                        </mat-form-field>
+                                        <mat-form-field class="form-field full-width" appearance="outline">
+                                            <mat-label>Price</mat-label>
+                                            <input matInput placeholder="Room Price" class="form-control"
+                                            [(ngModel)]="book.price" formControlName="price">
+                                        </mat-form-field>
+                                        <mat-divider></mat-divider>
+                                        <!-- <h4>
+                                    Total:$317.99
+                                </h4> -->
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 text-right" style="padding:15px 0px !important;">
+                                    <button mat-raised-button matStepperNext color="primary"
+                                        style="padding:30px !important;">Submit Booking</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="bookingFormConfirm" label="Review and Confirm Your Booking Details"
+                    style="background-color:#ff4081 !important; margin-bottom: 15px !important; color:#fff !important;">
+                    <form [formGroup]="bookingFormConfirm" (ngSubmit)="onSubmitBookingDetails(bookingForm.value)">
+                        <div class="row">
+                            <div class="col-7" style="padding-right:0px !important">
+                                <div class="row">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="/assets/images/img-1.jpg" alt="photo" class="d-block w-100">
+                                            <div class="carousel-caption"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <div class="row cont-details" style="padding:10px 30px !important;">
+                                    <ul class="list-group">
+                                        <li class="list-group-item" style="background-color: #ff4081 !important;
+                                        color: #fff !important; font-size: 25px !important;
+                                        padding: 15px 10px !important; font-weight: 500 !important;">
+                                            {{book.hotelName}}
+                                        </li>
+                                        <li class="list-group-item">{{book.roomName}}({{book.roomType}})</li>
+                                        <li class="list-group-item">Check In: {{book.checkIn | date:'MM/dd/yyyy'}}</li>
+                                        <li class="list-group-item">Check Out: {{book.checkOut | date:'MM/dd/yyyy'}}
+                                        </li>
+                                        <li class="list-group-item">Room No: {{book.roomNo}}</li>
+                                        <li class="list-group-item">Adults: {{book.adults}}</li>
+                                        <li class="list-group-item">Child: {{book.child}}</li>
+                                        <li class="list-group-item">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 footer-list-29 footer-1" style="
+                                            padding: 0 !important;">Your Details:
+                                                <h3 class="title-big" style="margin: 10px 0px !important;"> {{book.fullName}}</h3>
+                                                <ul style="list-style-type: none !important;">
+                                                    <li><mat-icon matSuffix class="my-icon">room</mat-icon>
+                                                        {{book.address1}}, {{book.address2}}<br>
+                                                            {{book.city}}, {{book.state}}<br>
+                                                            {{book.country}}, {{book.pincode}}
+                                                    </li>
+                                                    <li><mat-icon>phone</mat-icon>{{book.mobileNo}}</li>
+                                                    <li><mat-icon>mail</mat-icon>{{book.emailId}}</li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <br><br>
+                                    <strong style="font-size: 25px !important;
+                                    padding: 20px 10px !important; font-weight: 500 !important;">Total:
+                                        {{book.price}}</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row text-right" style="padding:15px 0px !important;">
+                            <div class="col-sm-1"><button mat-raised-button matStepperPrevious color="warn"
+                                    style="padding:30px !important;">Back</button></div>
+                            <div class="col-sm-8"></div>
+                            <div class="col-sm-3">
+                                <button mat-raised-button matStepperNext color="primary" routerLink="/billing"
+                                    style="padding:30px !important;">Confirm Booking</button>
+                            </div>
+                        </div>
+                    </form>
+                </mat-step>
+            </mat-stepper>
+        </div>
+    </div>
+</section>
+<!-- /contact1 -->

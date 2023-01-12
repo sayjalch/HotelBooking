@@ -1,0 +1,142 @@
+
+<!-- main-slider -->
+<section class="w3l-main-slider" id="home">
+    <div class="companies20-content">
+        <div style="width: 100%; height: 400px; text-align:center;margin:0; padding:0;">
+            <ng-image-slider #nav [images]="imageObject" [infinite]="false" [autoSlide]="1"
+                [imageSize]="{width: '100%', height: '400px'}" slideImage="1"></ng-image-slider>
+        </div>
+    </div>
+</section>
+<!-- /main-slider -->
+<section class="w3l-availability-form" id="booking">
+    <!-- /w3l-availability-form-section -->
+    <div class="w3l-availability-form-main py-3">
+        <div class="container pt-lg-3 pb-lg-5">
+            <div class="forms-top">
+                <div class="form-right">
+                    <div class="form-inner-cont">
+                        <h3 class="title-small">Check Availability</h3>
+                        <form >
+                            <div class="row book-form">
+                                <div class="form-input col-md-4 col-sm-6 mt-3">
+                                    <mat-form-field class="form-field full-width" appearance="outline">
+                                        <mat-label>Location</mat-label>
+                                        <input matInput placeholder="Location" formControlName="Location" #hotelname [(ngModel)]="hotelLocation" required>
+                                        <mat-icon matSuffix class="my-icon">room</mat-icon>
+                                    </mat-form-field>
+                                </div>
+                                <div class="form-input col-md-4 col-sm-6 mt-3">
+                                    <mat-form-field class="form-field full-width" appearance="outline">
+                                        <mat-label>Check In:</mat-label>
+                                        <input matInput [matDatepicker]="picker1" placeholder="Check In" class="form-control"
+                                            required>
+                                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker1></mat-datepicker>
+                                    </mat-form-field>
+                                </div>
+                                <div class="form-input col-md-4 col-sm-6 mt-3">
+                                    <mat-form-field class="form-field full-width" appearance="outline">
+                                        <mat-label>Check Out:</mat-label>
+                                        <input matInput [matDatepicker]="picker2" placeholder="Check Out" class="form-control"
+                                            required>
+                                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker2></mat-datepicker>
+                                    </mat-form-field>
+                                </div>
+                                <div class="form-input col-md-4 col-sm-6 mt-3">
+                                    <mat-form-field class="form-field full-width" appearance="outline">
+                                        <mat-label>Adults</mat-label>
+                                        <mat-select placeholder="Select no of adults"
+                                            required>
+                                            <mat-option *ngFor="let adultNo of adults" [value]="adultNo">
+                                                {{ adultNo }}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="form-input col-md-4 col-sm-6 mt-3">
+                                    <mat-form-field class="form-field full-width" appearance="outline">
+                                        <mat-label>Child</mat-label>
+                                        <mat-select placeholder="Select no of child"
+                                            required>
+                                            <mat-option *ngFor="let childNo of childs" [value]="childNo">
+                                                {{ childNo }}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="bottom-btn col-md-4 col-sm-6 mt-3">
+                                    <button mat-raised-button color="warn"
+                                        style="padding:28px !important; width:100% !important" (click)="onSearch(hotelname.value)">Check
+                                        availability</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //w3l-availability-form-section -->
+<!-- about -->
+<section class="w3l-about py-3" style="background-color: var(--theme-light) !important;">
+    <div class="container py-sm-4">
+        <div class="row">
+            <div class="col-lg-6 about-left mb-md-0 mb-5">
+                <h3 class="title-big">Relax in our Hotels</h3>
+                <h5>
+                    We make the best for all our customers. <br><br>
+                    Why to book Hotels Online with us
+                </h5>
+                <p class="mt-3">
+                    We are back in the post-pandemic world with a bouquet of hotels across Indian cities ranging from
+                    leisure to business ones with a new outlook. Hotels who has always been on the forefront of assuring
+                    a comfortable stay which is a bang for your bucks, is offering you online hotel booking that
+                    guarantees you hygienic, sanitised rooms across hotels in India. Explore a raft of interesting
+                    features such as Clean Pass stays, travel again offers and long stay discounts encouraging you to
+                    travel again, make your hotel booking while keeping your anxieties at bay.</p>
+            </div>
+            <div class="col-lg-6 about-right position-relative mt-lg-0 mt-5">
+                <img src="assets/images/bottom.jpg" alt="" class="img-fluid img-border mt-4" />
+            </div>
+            <div class="col-lg-6 about-left mb-md-0 mb-5">
+                <h5>
+                    Hotel Offers and Deals
+                </h5>
+                <p class="mt-3">
+                    As we resume travelling again whether it is for business, relaxation or to meet family, it would be
+                    great to know what there are that offer me protection in times of the pandemic, and if any of these
+                    hotel booking offers online are applicable for a long duration stay. We are extremely thrilled to
+                    offer hotel deals and hotel discount coupons that cater to this increasingly important requirement
+                    of our customers. You can browse them below:
+                </p>
+                <ul class="w3l-right-book mt-4" style="list-style-type: none !important;">
+                    <li><span class="fa fa-check" aria-hidden="true"></span>The Travel Again Offer</li>
+                    <li><span class="fa fa-check" aria-hidden="true"></span>The Long Stay Hotel offer</li>
+                    <li><span class="fa fa-check" aria-hidden="true"></span>Clean Pass Hotels</li>
+                    <li><span class="fa fa-check" aria-hidden="true"></span>The freedom of cancellation</li>
+                    <li><span class="fa fa-check" aria-hidden="true"></span>Easier Stays at Couple-Friendly Hotels</li>
+                    <li><span class="fa fa-check" aria-hidden="true"></span>Reward points, discounts, and memberships
+                    </li>
+                    <li><span class="fa fa-check" aria-hidden="true"></span>Smart Choice Hotel</li>
+                    <li><span class="fa fa-check" aria-hidden="true"></span>We make the best for all our customers</li>
+                    <li><span class="fa fa-check" aria-hidden="true"></span>Luxury hotels and best resorts</li>
+                    <li><span class="fa fa-check" aria-hidden="true"></span>Double rooms and family rooms</li>
+                    <li><span class="fa fa-check" aria-hidden="true"></span>Enjoy a luxury experience</li>
+                </ul>
+
+            </div>
+            <div class="col-lg-6 about-right position-relative mt-lg-0 mt-5">
+                <img src="assets/images/about2.jpg" alt="" class="img-fluid img-border mt-4" />
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //about -->
+<!-- quotation -->
+<div class="quotation">
+    <img src="/assets/images/Dashboard.jpg" style="width:100% !important; height: 500px !important;">
+</div>
+<!-- //quotation -->

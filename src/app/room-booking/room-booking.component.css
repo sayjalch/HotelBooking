@@ -1,0 +1,23 @@
+.mat-mdc-form-field-error {
+    display: contents !important;
+ }
+ .mat-mdc-form-field {
+    display: block !important;
+ }
+
+ .mat-step-label {
+    color: #fff !important;
+}
+
+li.list-group-item{
+   border-right: none !important;
+   border-left: none !important;
+   padding: 15px 10px !important;
+}
+
+li {
+   padding: 5px 0px !important;
+}
+ ul{
+   padding-left:0px !important;
+ }

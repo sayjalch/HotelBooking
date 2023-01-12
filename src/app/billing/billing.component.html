@@ -1,0 +1,165 @@
+<div class="col-md-12 ">   
+    <div class="row 8" >
+           
+           <div class="receipt-main col-xs-2 col-sm-10 col-md-5 col-xs-offset-0 col-sm-offset-2 col-md-offset-1">
+               <div class="row">
+                   <div class="receipt-header">
+                       <div class="col-xs-4 col-sm-4 col-md-4">
+                        <div>
+                            <table>
+                                <tr *ngFor= "let i of hotel">
+                                    <td>{{i.hotelName}}</td>
+                                    </tr>
+                            </table>
+                        </div>
+                       </div>
+                       <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+                           <div class="receipt-right">
+                           
+                               <p>HotelBooking@gmail.com <i class="fa fa-envelope-o"></i></p>
+                               <p>India <i class="fa fa-location-arrow"></i></p>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               
+               <div class="row">
+                   <div class="receipt-header receipt-header-mid">
+                       <div class="col-xs-8 col-sm-8 col-md-8 text-left">
+                           <div class="receipt-right">
+                          Name:
+                               <div>
+                                <!-- <table> -->
+                                    <tr  *ngFor="let i of hotel">
+                                        <td><h1 style="font-size:medium;">{{i.fullName}}</h1></td>
+                                        </tr>
+                                <!-- </table> -->
+                            </div>
+                           
+                               Email :
+                                <div>
+                                 <table>
+                                     <tr *ngFor="let i of hotel">
+                                         <td><h3>{{i.emailid}}</h3></td>
+                                         </tr>
+                                 </table>
+                             </div> 
+                               <!-- <p><b>Address :</b>  <tr *ngFor="let i of hotel">
+                                <td><h3>{{i.address1}}</h3></td>
+                                </tr></p> -->
+                           </div>
+                       </div>
+                       <div class="col-xs-4 col-sm-4 col-md-4">
+                           <div class="receipt-left">
+                               <h3>INVOICE</h3>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               
+               <div>
+                   <table class="table table-bordered">
+                       <thead>
+                           <tr>
+                               <th>Description</th>
+                               <th>status</th>
+                           </tr>
+                       </thead>
+                       <tbody>
+                           <tr>
+                               <td class="col-md-9"><h3>Hotel status</h3></td>
+                               <td class="col-md-3"><i class="fa fa-inr"></i>   
+                                <tr *ngFor="let i of hotel">
+                                    <td><h2 style="font-size:small;">{{i.bookingStatus}}</h2></td>
+                                    </tr>
+                            
+                           </tr>
+                           <tr>
+                               <td class="col-md-9">Room No</td>
+                               <td class="col-md-3"><i class="fa fa-inr"></i>
+                                <tr *ngFor="let i of hotel">
+                                    <td><h1 style="font-size:small;">{{i.roomNo}}</h1></td>
+                                    </tr>
+                            
+                            </td>
+                               
+                           </tr>
+                           <tr>
+                               <td class="col-md-9">checkIn</td>
+                               <td class="col-md-3"><i class="fa fa-inr"></i>
+                                <tr *ngFor="let i of hotel">
+                                    <td><h1 style="font-size:small;">{{i.checkIn}}</h1></td>
+                                    </tr>
+                            </td>
+                           </tr>
+
+                           <tr>
+                            <td class="col-md-9">price</td>
+                            <td class="col-md-3"><i class="fa fa-inr"></i>
+                             <tr *ngFor="let i of hotel">
+                                 <td><h1 style="font-size:small;">{{i.price}}</h1></td>
+                                 </tr>
+                         </td>
+                        </tr>
+                           <tr>
+                               <td class="text-right">
+                               <!-- <p>
+                                   <strong>Total Amount: </strong>
+                               </p>
+                               <p>
+                                   <strong>Late Fees: </strong>
+                               </p>
+                               <p>
+                                   <strong>Payable Amount: </strong>
+                               </p>
+                               <p>
+                                   <strong>Balance Due: </strong>
+                               </p>
+                               </td>
+                               <td>
+                               <p>
+                                   <strong><i class="fa fa-inr"></i> 65,500/-</strong>
+                               </p> -->
+                               <!-- <p>
+                                   <strong><i class="fa fa-inr"></i> 500/-</strong>
+                               </p>
+                               <p>
+                                   <strong><i class="fa fa-inr"></i> 1300/-</strong>
+                               </p>
+                               <p>
+                                   <strong><i class="fa fa-inr"></i> 9500/-</strong>
+                               </p> -->
+                               </td>
+                           </tr>
+                           <tr>
+                              
+                               <td class="text-right"><h2><strong>Total: </strong></h2></td>
+                               <td class="text-left text-danger"><h2><strong><i class="fa fa-inr"></i>  <tr *ngFor="let i of hotel">
+                                <td><h1 style="font-size:small;">{{i.price}}</h1></td>
+                                </tr> </strong></h2></td>
+                           </tr>
+                       </tbody>
+                   </table>
+               </div>
+               
+               <div class="row">
+                   <div class="receipt-header receipt-header-mid receipt-footer">
+                       <div class="col-xs-8 col-sm-8 col-md-8 text-left">
+                           <div class="receipt-right">
+                               <p><b>Date :</b> 12/05/2022</p>
+                               <h5 style="color: rgb(140, 140, 140);">Thanks for Booking.!</h5>
+                           </div>
+                       </div>
+                       <div class="col-xs-4 col-sm-4 col-md-4">
+                           <div class="receipt-left">
+                               <h1>signature</h1>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               
+           </div>    
+       </div>
+   </div>
+
+   <button style="color: brown;" (click)="getName('Your Hotel is Booked')"   routerLink="/home">DownLoad</button>

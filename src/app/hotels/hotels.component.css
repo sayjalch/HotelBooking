@@ -1,0 +1,8 @@
+.checked {
+    color: orange;
+  }
+  .shadow
+{
+    /* box-shadow: 0 0 5px rgb(0 0 0 / 25%) */
+    box-shadow: 5px 10px 16px #888888;
+}

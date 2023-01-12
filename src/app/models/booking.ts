@@ -1,0 +1,25 @@
+export class Booking {
+    bookingId:number;
+    fullName:string;
+    emailId:string;
+    gender:string;
+    dataofBirth:string;
+    mobileNo:number;
+    address1:string;
+    address2:string;
+    city:string;
+    pincode:string; 
+    state:string;
+    country:string;
+    hotelName:string;
+    roomName:string;
+    roomType:string;
+    checkIn:string;
+    checkOut:string;
+    roomNo:string;
+    adults:number;
+    child:number;
+    price:number;
+    noOfStayDays:number;
+    bookingStatus:string;
+}

@@ -1,0 +1,90 @@
+<br>
+<br>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-12">
+
+      <div class="row" *ngFor="let ht of finalHotel">
+        <div class="col-md-8">
+          <mat-card class="example-card shadow">
+
+            <mat-card-content>
+
+
+              <div id="myCarousel" class="carousel slide myid" data-ride="carousel" style="height: 414px">
+                <br>
+
+                <div class="carousel-inner" style="margin-top: -29px;height: 421px;">
+                  <div class="item active">
+                    <img [src]="ht.image" alt="Los Angeles" width="100%">
+                  </div>
+                </div>
+
+              </div>
+            </mat-card-content>
+
+          </mat-card>
+          <br>
+          <br>
+          <mat-divider></mat-divider>
+        </div>
+
+
+        <div class="col-md-4">
+          <mat-card class="example-card shadow">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title style="font-size: 25px;margin-left: -56px"><b> {{ht.hotelName}}</b></mat-card-title>
+
+            </mat-card-header>
+
+            <mat-card-content>
+              <br>
+              <h2>{{ht.location}}</h2>
+              <br>
+
+              <span>parking <mat-icon>directions_car</mat-icon></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span>Wifi <mat-icon>network_wifi</mat-icon></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span>Reception <mat-icon>person_pin</mat-icon></span>
+              <br>
+              <br>
+              <br>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>&nbsp;(50 ratings).&nbsp;&nbsp;Good
+              <br>
+              <br>
+              <br>
+              <br>
+              <mat-chip-listbox>
+                <mat-chip-option>Food</mat-chip-option>
+                <mat-chip-option color="accent" selected>Breakfast</mat-chip-option>
+                <mat-chip-option>Beverage</mat-chip-option>
+
+              </mat-chip-listbox>
+
+              <br>
+              <br>
+
+            </mat-card-content>
+            <mat-card-actions>
+              <a routerLink="/rooms/{{ht.id}}"><button mat-raised-button style="background-color:#1ab64f;">View
+                  Rooms</button></a> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+              &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;<button mat-raised-button color="primary"
+                (click)="openDialog(ht.policyDescription)">View Policy</button>
+
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+</div>
